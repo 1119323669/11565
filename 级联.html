@@ -1,0 +1,93 @@
+
+    <!DOCTYPE html>  
+    <html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Document</title>  
+        <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">  
+        <style type="text/css">  
+        body{  
+            margin: 0;  
+            padding: 0;  
+        }  
+        div.main{  
+            margin: 100px auto;  
+            width: 50%;  
+            height: 200px;  
+            border: 1px solid #CCC;  
+            padding: 30px 10px;  
+        }  
+        span{  
+            color: #F34949;  
+            font-size: 10px;  
+            /*display: none;*/  
+            margin-left:20px;  
+        }  
+        form{  
+            width: 100%;  
+            height: 100px;  
+            margin: 0px auto;  
+            padding: 30px 0px;  
+        }  
+        input{  
+            width: 180px;  
+        }
+        .alr{  
+            text-align: right;  
+        }  
+        </style>  
+        <script type="text/javascript">  
+        function isUser(){  
+            var oVal1 = document.getElementById('user');  
+            var oSpan1 = document.getElementById('userInfo');  
+      
+            var reg1=/^[a-zA-Z]\w*$/i;  
+            if(oVal1.value && !reg1.test(oVal1.value)){  
+                oSpan1.style.display = "inline-block";  
+            }else{  
+                oSpan1.style.display = "none";  
+            }  
+        }  
+      
+        function isPassword(){  
+            var oVal2 = document.getElementById('pass');  
+            var oSpan2 = document.getElementById('passInfo');  
+      
+            var reg2 = /^([a-zA-z]+[0-9]+)|([0-9]+[a-zA-Z]+)$/i;  
+      
+            if(oVal2.value.length >= 8 && reg2.test(oVal2.value)){  
+                oSpan2.style.display = "none";  
+            }else{  
+                oSpan2.style.display = "inline-block";  
+            }  
+        }  
+      
+        function isMail(){  
+            var oVal3 = document.getElementById('mail');  
+            var oSpan3 = document.getElementById('mailInfo');  
+      
+            var reg3 = /^([a-zA-Z0-9_-])+\@([a-zA-Z0-9_-])+.([a-zA-Z])+$/;  
+            if(oVal3.value && reg3.test(oVal3.value)){  
+                oSpan3.style.display = "none";  
+            }else{  
+                oSpan3.style.display = "inline-block";  
+            }  
+        }  
+        </script>  
+    </head>  
+    <body>  
+    <div class="main">  
+        <form>  
+            <label class="">用户名：</label>  
+            <input class="" type="text" id="user" onblur="isUser()" />  
+            <span class="" id="userInfo">以字母开头，可包含数字、字母、下划线。</span><br><br>  
+            <label class="">密码：</label>  
+            <input class="" type="password" id="pass" onblur="isPassword()" />  
+            <span class="" id="passInfo">至少8位，必须包含字母、数字</span><br><br>  
+            <label class="">邮箱：</label>  
+            <input class="" type="text" id="mail" onblur="isMail()" />  
+            <span class="" id="mailInfo">请输入正确邮箱</span>  
+        </form>  
+    </div>  
+    </body>  
+    </html>
